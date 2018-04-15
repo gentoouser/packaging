@@ -67,7 +67,7 @@ my $proxy = '';
 # Subversion proxy settings are configured in %APPDATA%\Subversion\servers
 
 my $NOISY   = 1;            # Set to 0 for less output to the screen
-my $version = '0.24';       # Main mythtv version - used to name dlls
+my $version = '0.28';       # Main mythtv version - used to name dlls
 my $package = 0;            # Create a Win32 Distribution package? 1 for yes
 my $compile_type = "profile"; # compile options: debug, profile or release
 my $tickets = 0;            # Apply specific win32 tickets -
@@ -315,28 +315,28 @@ push @{$expect},
   comment => 'unzip.exe - Get a precompiled '.
              'native Win32 version from InfoZip' ],
 [ archive => $sources.'unzip/unz552xN.exe',
-  'fetch' => 'http://mythtv-for-windows.googlecode.com/files/unz552xn.exe'],
+  'fetch' => 'https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/mythtv-for-windows/unz552xn.exe'],
 [ file    => $sources.'unzip/unzip.exe',
   exec    => 'chdir /d '.$dossources.'unzip && '.
              $dossources.'unzip/unz552xN.exe' ],
 # we could probably put the unzip.exe into the path...
 
 [ archive => $sources.'MinGW-gcc440_1.zip',
-  'fetch' => 'http://mythtv-for-windows.googlecode.com/files/MinGW-gcc440_1.zip',
+  'fetch' => 'https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/mythtv-for-windows/MinGW-gcc440_1.zip',
   comment => 'Get mingw and addons first, or we cant do [shell] requests!' ],
 [ archive => $sources.'mingw-utils-0.3.tar.gz',
-  'fetch' => 'http://mythtv-for-windows.googlecode.com/files/mingw-utils-0.3.tar.gz' ],
+  'fetch' => 'https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/mythtv-for-windows/mingw-utils-0.3.tar.gz' ],
 # Need updated binutils to build ffmpeg DLLs properly with gcc 4.4
 [ archive => $sources.'binutils-2.20-1-mingw32-bin.tar.gz',
-  'fetch' => 'http://mythtv-for-windows.googlecode.com/files/binutils-2.20-1-mingw32-bin.tar.gz' ],
+  'fetch' => 'https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/mythtv-for-windows/binutils-2.20-1-mingw32-bin.tar.gz' ],
 # Need updated mingwrt for fixed usleep()
 [ archive => $sources.'mingwrt-3.17-mingw32-dev.tar.gz',
-  'fetch' => 'http://mythtv-for-windows.googlecode.com/files/mingwrt-3.17-mingw32-dev.tar.gz' ],
+  'fetch' => 'https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/mythtv-for-windows/mingwrt-3.17-mingw32-dev.tar.gz' ],
 [ archive => $sources.'mingwrt-3.17-mingw32-dll.tar.gz',
-  'fetch' => 'http://mythtv-for-windows.googlecode.com/files/mingwrt-3.17-mingw32-dll.tar.gz' ],
+  'fetch' => 'https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/mythtv-for-windows/mingwrt-3.17-mingw32-dll.tar.gz' ],
 # patch.exe included with MSYS 1.0.11 is broken, so update it
 [ archive => $sources.'patch-2.5.9-1-msys-1.0.11-bin.tar.lzma',
-  'fetch' => 'http://mythtv-for-windows.googlecode.com/files/patch-2.5.9-1-msys-1.0.11-bin.tar.lzma' ],
+  'fetch' => 'https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/mythtv-for-windows/patch-2.5.9-1-msys-1.0.11-bin.tar.lzma' ],
 
 [ dir     => $mingw,
   mkdirs  => $mingw],
@@ -348,16 +348,16 @@ push @{$expect},
   comment => 'Move mingw directories to install location' ],
 
 [ archive => $sources.'MSYS-1.0.11.exe',
-  'fetch' => 'http://mythtv-for-windows.googlecode.com/files/MSYS-1.0.11.exe',
+  'fetch' => 'https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/mythtv-for-windows/MSYS-1.0.11.exe',
   comment => 'Get the MSYS and addons:' ] ,
 [ archive => $sources.'libz-1.2.3-1-mingw32-dev.tar.gz',
-  'fetch' => 'http://mythtv-for-windows.googlecode.com/files/libz-1.2.3-1-mingw32-dev.tar.gz' ] ,
+  'fetch' => 'https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/mythtv-for-windows/libz-1.2.3-1-mingw32-dev.tar.gz' ] ,
 [ archive => $sources.'libz-1.2.3-1-mingw32-dll-1.tar.gz',
-  'fetch' => 'http://mythtv-for-windows.googlecode.com/files/libz-1.2.3-1-mingw32-dll-1.tar.gz' ] ,
+  'fetch' => 'https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/mythtv-for-windows/libz-1.2.3-1-mingw32-dll-1.tar.gz' ] ,
 [ archive => $sources.'coreutils-5.97-MSYS-1.0.11-snapshot.tar.bz2',
-  'fetch' => 'http://mythtv-for-windows.googlecode.com/files/coreutils-5.97-MSYS-1.0.11-snapshot.tar.bz2' ] ,
+  'fetch' => 'https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/mythtv-for-windows/coreutils-5.97-MSYS-1.0.11-snapshot.tar.bz2' ] ,
 [ archive => $sources.'mktemp-1.5-MSYS.tar.bz2',
-  'fetch' => 'http://mythtv-for-windows.googlecode.com/files/mktemp-1.5-MSYS.tar.bz2' ] ,
+  'fetch' => 'https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/mythtv-for-windows/mktemp-1.5-MSYS.tar.bz2' ] ,
 
 # install MSYS, it supplies the 'tar' executable, among others:
 [ file    => $msys.'bin/tar.exe',
@@ -402,7 +402,7 @@ push @{$expect},
 
 # we now use SVN 1.6.x
 [ archive => $sources.'svn-win32-1.6.12.zip',
-  'fetch' => 'http://mythtv-for-windows.googlecode.com/files/svn-win32-1.6.12.zip',
+  'fetch' => 'https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/mythtv-for-windows/svn-win32-1.6.12.zip',
   comment => 'Subversion comes as a zip file, so it '.
              'cant be done earlier than the unzip tool!'],
 [ dir     => $sources.'svn-win32-1.6.12',
@@ -429,7 +429,7 @@ push @{$expect},
 # If this fails you, try another mirror, or maybe an archived version:
 # http://downloads.mysql.com/archives/mysql-5.1/mysql-essential-5.1.42-win32.msi
 [ archive => $sources.'mysql-essential-5.1.49-win32.msi',
-  'fetch' => 'http://mythtv-for-windows.googlecode.com/files/mysql-essential-5.1.49-win32.msi',
+  'fetch' => 'https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/mythtv-for-windows/mysql-essential-5.1.49-win32.msi',
   comment => 'fetch mysql binaries - this is a big download(35MB) '.
              'so it might take a while' ],
 [ file    => $mysql.'bin/libmySQL.dll',
@@ -502,7 +502,7 @@ C:/MinGW	/mingw'],
 
 # Qt MinGW distribution includes pthread headers but not the DLL, so fetch it
 [ archive => $sources.'pthreadGC2.dll',  
-  'fetch' => 'http://mythtv-for-windows.googlecode.com/files/pthreadGC2.dll' ], 
+  'fetch' => 'https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/mythtv-for-windows/pthreadGC2.dll' ], 
 [ filesame => [$mingw.'bin/pthreadGC2.dll', $sources."pthreadGC2.dll"], 
   copy     => [''=>''] ], 
 
@@ -566,7 +566,7 @@ C:/MinGW	/mingw'],
 
 #   ( save bandwidth compare to the above full SDK where they came from:
 [ archive  => $sources.'DX9SDK_dsound_Include_subset.zip', 
-  'fetch'  => 'http://mythtv-for-windows.googlecode.com/files/DX9SDK_dsound_Include_subset.zip',
+  'fetch'  => 'https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/mythtv-for-windows/DX9SDK_dsound_Include_subset.zip',
   comment  => 'We download just the required Include files for DX9' ], 
 [ dir      => $sources.'DX9SDK_dsound_Include_subset', 
   extract  => $sources.'DX9SDK_dsound_Include_subset.zip' ],
@@ -630,7 +630,7 @@ if ($package == 1) {
 if ( $qtver == 4  ) {
 push @{$expect}, 
 [ archive => $sources.'qt-win-opensource-4.6.3-mingw.exe',  
-    fetch => 'http://get.qt.nokia.com/qt/source/'.
+    fetch => 'http://mirrors.ocf.berkeley.edu/qt/archive/qt/4.6/'.
              'qt-win-opensource-4.6.3-mingw.exe',
     comment => 'Downloading QT binaries; this will take a LONG time (267MB)' ],
 [ file => $qt4dir.'bin/QtCore4.dll', 
@@ -654,7 +654,7 @@ push @{$expect},
 # but this requires that the .tar.gz didn't come with a Makefile in it.
 push @{$expect},
 [ archive => $sources.'freetype-2.3.5.tar.gz',  
-  fetch   => 'http://mythtv-for-windows.googlecode.com/files/freetype-2.3.5.tar.gz'],
+  fetch   => 'https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/mythtv-for-windows/freetype-2.3.5.tar.gz'],
 [ dir     => $sources.'freetype-2.3.5', 
   extract => $sources.'freetype-2.3.5.tar' ],
 # caution... freetype comes with a Makefile in the .tar.gz, so work around it!
@@ -680,7 +680,7 @@ push @{$expect},
 
 #eg: http://transact.dl.sourceforge.net/sourceforge/lame/lame-398-2.tar.gz
 [ archive => $sources.'lame-398-2.tar.gz',  
-  fetch   => 'http://mythtv-for-windows.googlecode.com/files/lame-398-2.tar.gz'],
+  fetch   => 'https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/mythtv-for-windows/lame-398-2.tar.gz'],
 [ dir     => $sources.'lame-398-2', 
   extract => $sources.'lame-398-2.tar' ],
 [ file    => $msys.'lib/libmp3lame.a', 
@@ -696,7 +696,7 @@ push @{$expect},
 # taglib 1.6 sources changed it's build system under win32 to use 'cmake', 
 # which we don't have, however pre-compiled mingw 1.6 binaries are available:
 [ archive => $sources.'taglib-1.6.1-mingw-bin.zip',  
-  fetch   => 'http://mythtv-for-windows.googlecode.com/files/taglib-1.6.1-mingw-bin.zip'],
+  fetch   => 'https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/mythtv-for-windows/taglib-1.6.1-mingw-bin.zip'],
 [ dir     => $sources.'taglib-1.6.1-mingw-bin',
   mkdirs  => $sources.'taglib-1.6.1-mingw-bin'],
 [ dir     => $sources.'taglib-1.6.1-mingw-bin/bin',
@@ -723,7 +723,7 @@ esac'] ],
 
 # confirmed latest version as at 26-12-2008:
 [ archive => $sources.'libao-0.8.8.tar.gz',  
-  fetch   => 'http://mythtv-for-windows.googlecode.com/files/libao-0.8.8.tar.gz'],
+  fetch   => 'https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/mythtv-for-windows/libao-0.8.8.tar.gz'],
 [ dir     => $sources.'libao-0.8.8', 
   extract => $sources.'libao-0.8.8.tar' ],
 [ file    => $msys.'bin/libao-2.dll',  
@@ -738,7 +738,7 @@ esac'] ],
 # definitely need mingw version of ogg for plugins,
 # and for mingw vorbis to build!
 [ archive => $sources.'libogg-1.1.3.tar.gz',  
-  fetch   => 'http://mythtv-for-windows.googlecode.com/files/libogg-1.1.3.tar.gz'],
+  fetch   => 'https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/mythtv-for-windows/libogg-1.1.3.tar.gz'],
 [ dir     => $sources.'libogg-1.1.3', 
   extract => $sources.'libogg-1.1.3.tar' ],
 [ file    => $msys.'bin/libogg-0.dll', 
@@ -750,7 +750,7 @@ esac'] ],
 
 # confirmed latest version as at 26-12-2008:
 [ archive => $sources.'libvorbis-1.2.0.tar.gz',  
-  fetch   => 'http://mythtv-for-windows.googlecode.com/files/libvorbis-1.2.0.tar.gz'],
+  fetch   => 'https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/mythtv-for-windows/libvorbis-1.2.0.tar.gz'],
 [ dir     => $sources.'libvorbis-1.2.0', 
   extract => $sources.'libvorbis-1.2.0.tar' ],
 [ file    => $msys.'lib/libvorbis.a', 
@@ -762,7 +762,7 @@ esac'] ],
 
 # confirmed latest source version as at 26-12-2008:
 [ archive => $sources.'SDL-devel-1.2.13-mingw32.tar.gz',  
-  fetch   => 'http://mythtv-for-windows.googlecode.com/files/SDL-devel-1.2.13-mingw32.tar.gz'],
+  fetch   => 'https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/mythtv-for-windows/SDL-devel-1.2.13-mingw32.tar.gz'],
 [ file    => $sources.'SDL-1.2.13/bin/SDL.dll', 
   extract => $sources.'SDL-devel-1.2.13-mingw32.tar.gz' ],
 [ file    => $msys.'bin/SDL.dll', 
@@ -772,7 +772,7 @@ esac'] ],
 
 # confirmed latest source version as at 26-12-2008
 [ archive => $sources.'libexif-0.6.17.tar.gz',  
-  fetch   => 'http://mythtv-for-windows.googlecode.com/files/libexif-0.6.17.tar.gz'],
+  fetch   => 'https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/mythtv-for-windows/libexif-0.6.17.tar.gz'],
 [ dir     => $sources.'libexif-0.6.17', 
   extract => $sources.'libexif-0.6.17.tar' ],
 [ file    => $msys.'bin/libexif-12.dll', 
@@ -787,7 +787,7 @@ esac'] ],
 
 # confirmed latest source version as at 26-12-2008
 [ archive => $sources.'libvisual-0.4.0.tar.gz',  
-  fetch   => 'http://mythtv-for-windows.googlecode.com/files/libvisual-0.4.0.tar.gz'],
+  fetch   => 'https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/mythtv-for-windows/libvisual-0.4.0.tar.gz'],
 [ dir     => $sources.'libvisual-0.4.0', 
   extract => $sources.'libvisual-0.4.0.tar' ],
 [ file  => $sources.'libvisual.patch',
@@ -827,7 +827,7 @@ esac'] ],
 
 
 [ archive => $sources.'fftw-3.2.1.tar.gz',  
-  fetch   => 'http://mythtv-for-windows.googlecode.com/files/fftw-3.2.1.tar.gz'],
+  fetch   => 'https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/mythtv-for-windows/fftw-3.2.1.tar.gz'],
 [ dir     => $sources.'fftw-3.2.1', 
   extract => $sources.'fftw-3.2.1.tar' ],
 [ file    => $msys.'lib/libfftw3.a', 
